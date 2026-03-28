@@ -1,36 +1,38 @@
-# Projeto FIWARE + ESP32 (Smart Lamp IoT)
+# FIWARE SMART LAMP ESP32
 
-## 📖 Descrição do Projeto
+## 📖 Sobre o Projeto
 
-Este projeto tem como objetivo implementar uma **Prova de Conceito (PoC)** utilizando a plataforma FIWARE integrada a um **ESP32 DEVKIT V1**, simulado no Wokwi.
+O **FIWARE SMART LAMP ESP32** é uma Prova de Conceito (PoC) de uma solução IoT desenvolvida para monitoramento de luminosidade e controle remoto de um dispositivo.
 
-A solução simula um sistema de **monitoramento de luminosidade para vinherias**, utilizando um sensor LDR, além de permitir o controle remoto de um LED (lâmpada) via protocolo MQTT.
+O projeto utiliza a plataforma FIWARE integrada a um ESP32 DEVKIT V1, permitindo comunicação em tempo real via protocolo MQTT.
+
+A solução simula um cenário de monitoramento em vinherias, utilizando um sensor LDR e um LED onboard como atuador.
 
 ---
 
 ## 🎯 Objetivos
 
 * Implementar o FIWARE no Google Cloud
-* Criar uma entidade lógica representando uma lâmpada inteligente
-* Simular um sistema IoT com ESP32
-* Enviar dados de luminosidade para o FIWARE
-* Receber comandos remotos para controle do LED
-* Validar comunicação via MQTT e Postman
+* Criar uma entidade lógica para o dispositivo IoT
+* Monitorar luminosidade em tempo real
+* Controlar remotamente o LED onboard do ESP32
+* Validar comunicação via MQTT
+* Simular o sistema no Wokwi
 
 ---
 
 ## 🧠 Arquitetura da Solução
+<img width="992" height="961" alt="ESP32 + sensor LDR" src="https://github.com/user-attachments/assets/c3a9ba52-6300-4f70-a25e-614ca126f77b" />
 
-* ESP32 (simulado no Wokwi)
-* Sensor LDR (leitura de luminosidade)
-* Broker MQTT
-* FIWARE (Orion Context Broker)
-* Postman (envio de comandos)
+### 🔄 Fluxo de Comunicação
 
-Fluxo:
-
-ESP32 → MQTT → FIWARE
-FIWARE → MQTT → ESP32
+```mermaid
+graph LR
+A[ESP32 + LDR] -->|Publica dados| B[MQTT Broker]
+B --> C[FIWARE Orion Context Broker]
+C -->|Comando| B
+B --> D[ESP32 LED Onboard]
+```
 
 ---
 
@@ -39,86 +41,65 @@ FIWARE → MQTT → ESP32
 * FIWARE
 * Google Cloud Platform
 * ESP32 DEVKIT V1
-* Wokwi
 * MQTT
+* Wokwi
 * Postman
 * Linguagem C++ (Arduino)
 
 ---
 
-## 🔌 Funcionamento do Sistema
+## 🔌 Funcionamento
 
-O ESP32 realiza duas funções principais:
+### 📡 Monitoramento de Luminosidade
 
-### 📡 Envio de dados
-
-* Lê o valor do sensor LDR (simulado por potenciômetro)
-* Converte o valor para porcentagem (0 a 100)
-* Publica no tópico MQTT:
+O ESP32 realiza a leitura do sensor LDR (simulado por potenciômetro), converte os valores para porcentagem e envia via MQTT:
 
 ```
 /TEF/lamp002/attrs/l
 ```
+---
 
-### 💡 Controle da lâmpada
+#### Comandos:
 
-* Recebe comandos via MQTT:
-
-```
-/TEF/lamp002/cmd
-```
-
-* Comandos:
-
-  * `lamp002@on|` → Liga LED
-  * `lamp002@off|` → Desliga LED
-
-* Envia status para o broker:
-
-```
-/TEF/lamp002/attrs
-```
+| Comando     | Ação |                    |
+| ----------- | ---- | ------------------ |
+| lamp002@on  |      | Liga o LED onboard |
+| lamp002@off |      | Desliga o LED      |
 
 ---
 
-## 📄 Código do Projeto
-
-O código foi desenvolvido em C++ utilizando Arduino e está disponível no repositório.
-  
 ## ☁️ Configuração do FIWARE
 
-* Plataforma instalada no Google Cloud
+* Instalação realizada no Google Cloud
 * Broker MQTT configurado
-* Comunicação com Orion Context Broker validada
+* Integração com Orion Context Broker
 * Health Check executado com sucesso
 
 ---
 
-## 🧪 Simulação (Wokwi)
+## 🧪 Simulação
 
-🔗 Link da simulação:
+🔗 **Wokwi:**
 *https://wokwi.com/projects/459135998760928257*
 
 ---
 
-## 🎥 Vídeo Demonstrativo
+## 🎥 Demonstração
 
-🔗 Link do vídeo (máx. 3 minutos):
-*(coloque aqui seu vídeo em time-lapse)*
+🔗 **Vídeo:**
+*https://youtu.be/gYjKzG3erHM?si=gIhf7hQXuqpwdWLL*
 
 O vídeo demonstra:
 
 * Envio de dados de luminosidade
 * Comunicação com FIWARE
-* Controle do LED via Postman
+* Controle remoto do LED via Postman
 
 ---
 
 ## 📬 Testes com Postman
 
-Utilizado para enviar comandos ao dispositivo:
-
-Exemplo de comando:
+Exemplo de comandos:
 
 ```
 lamp002@on|
@@ -127,17 +108,33 @@ lamp002@off|
 
 ---
 
-## ✅ Resultados Obtidos
+## 📊 Resultados
 
-* Comunicação IoT funcionando corretamente
-* Integração ESP32 + MQTT + FIWARE validada
-* Controle remoto do dispositivo operacional
-* Envio contínuo de dados de luminosidade
+✔ Comunicação MQTT funcional
+✔ Integração com FIWARE validada
+✔ Controle remoto do dispositivo
+✔ Monitoramento em tempo real
 
 ---
-## Equipe:
+
+## 👩‍💻 Autores
 
 * Giovanna Oliveira Ferreira Dias – RM 566647
 * Maria Laura Druzeic – RM 566634
 * Marianne Mukai Nishikawa – RM 568001
 
+---
+
+## 🏁 Conclusão
+
+O projeto demonstra a aplicação prática de conceitos de **Internet das Coisas (IoT)** utilizando FIWARE, integrando dispositivos físicos, comunicação MQTT e serviços em nuvem.
+
+A solução é escalável e pode ser aplicada em cenários reais de automação, agricultura inteligente e monitoramento remoto.
+
+---
+
+## ⭐ Observação
+
+Este projeto foi desenvolvido como parte de um **Check Point acadêmico**, aplicando conceitos reais de IoT e Cloud Computing.
+
+---
