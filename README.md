@@ -61,10 +61,10 @@ O ESP32 realiza a leitura do sensor LDR (simulado por potenciômetro), converte 
 
 #### Comandos:
 
-| Comando     | Ação |                    |
-| ----------- | ---- | ------------------ |
-| lamp002@on  |      | Liga o LED onboard |
-| lamp002@off |      | Desliga o LED      |
+| Comando     | Ação               |
+| ----------- | ------------------ |
+| lamp002@on  | Liga o LED onboard |
+| lamp002@off | Desliga o LED      |
 
 ---
 
@@ -128,8 +128,6 @@ lamp002@off|
 ## 🏁 Conclusão
 
 O projeto demonstra a aplicação prática de conceitos de **Internet das Coisas (IoT)** utilizando FIWARE, integrando dispositivos físicos, comunicação MQTT e serviços em nuvem.
-
-A solução é escalável e pode ser aplicada em cenários reais de automação, agricultura inteligente e monitoramento remoto.
 
 ---
 
