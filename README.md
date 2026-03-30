@@ -2,15 +2,20 @@
 
 ## 📖 Sobre o Projeto
 
-O **FIWARE SMART LAMP ESP32** é uma Prova de Conceito (PoC) de uma solução IoT desenvolvida para monitoramento de luminosidade e controle remoto de um dispositivo.
+O FIWARE SMART LAMP ESP32 é uma Prova de Conceito (PoC) que marca o início da utilização da plataforma FIWARE como back-end de uma solução maior de monitoramento global de vinherias.
 
 O projeto utiliza a plataforma FIWARE integrada a um ESP32 DEVKIT V1, permitindo comunicação em tempo real via protocolo MQTT.
 
 A solução simula um cenário de monitoramento em vinherias, utilizando um sensor LDR e um LED onboard como atuador.
 
 ---
+🎯 Objetivo Principal
 
-## 🎯 Objetivos
+O foco deste projeto é:
+
+🚨 Iniciar o uso do FIWARE como back-end da solução de monitoramento de vinherias, validando comunicação, integração e controle remoto em tempo real.
+
+## 🎯 Objetivos Gerais
 
 * Implementar o FIWARE no Google Cloud
 * Criar uma entidade lógica para o dispositivo IoT
@@ -18,6 +23,7 @@ A solução simula um cenário de monitoramento em vinherias, utilizando um sens
 * Controlar remotamente o LED onboard do ESP32
 * Validar comunicação via MQTT
 * Simular o sistema no Wokwi
+* Simular um cenário real de automação agrícola
 
 ---
 
@@ -75,6 +81,19 @@ O ESP32 realiza a leitura do sensor LDR (simulado por potenciômetro), converte 
 * Integração com Orion Context Broker
 * Health Check executado com sucesso
 
+## ☁️ FIWARE como Back-end
+Neste projeto, o FIWARE atua como o núcleo central da solução, sendo responsável por:
+
+* Receber dados dos dispositivos IoT
+* Gerenciar o contexto das entidades
+* Permitir integração com aplicações externas
+* Viabilizar escalabilidade da solução
+
+Essa abordagem permite evoluir o projeto para um sistema completo de:
+
+🍇 Monitoramento global de vinherias
+📊 Análise de dados ambientais
+🤖 Automação inteligente
 ---
 
 ## 🧪 Simulação
@@ -127,7 +146,9 @@ lamp002@off|
 
 ## 🏁 Conclusão
 
-O projeto demonstra a aplicação prática de conceitos de **Internet das Coisas (IoT)** utilizando FIWARE, integrando dispositivos físicos, comunicação MQTT e serviços em nuvem.
+O projeto representa o primeiro passo na construção de uma arquitetura IoT escalável, utilizando o FIWARE como back-end para aplicações reais.
+
+A solução demonstra como integrar dispositivos físicos, comunicação MQTT e plataformas cloud para criar sistemas inteligentes e conectados.
 
 ---
 
